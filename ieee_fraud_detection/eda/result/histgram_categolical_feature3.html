@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"hconcat": [{"data": {"name": "data-d65b4492b47a36ae0190aaffa7c4e7e4"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_36"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_36"}, "field": "id_36"}}, "title": "counts of id_36", "width": 400}, {"data": {"name": "data-bc7a2a20128627a4dfa261cdc35f00fc"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_37"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_37"}, "field": "id_37"}}, "title": "counts of id_37", "width": 400}, {"data": {"name": "data-592d65dd0791ccf1da921bb081b4e957"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_38"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_38"}, "field": "id_38"}}, "title": "counts of id_38", "width": 400}]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-d65b4492b47a36ae0190aaffa7c4e7e4": [{"id_36": null, "count": 449555}, {"id_36": "F", "count": 134066}, {"id_36": "T", "count": 6919}], "data-bc7a2a20128627a4dfa261cdc35f00fc": [{"id_37": null, "count": 449555}, {"id_37": "T", "count": 110452}, {"id_37": "F", "count": 30533}], "data-592d65dd0791ccf1da921bb081b4e957": [{"id_38": null, "count": 449555}, {"id_38": "F", "count": 73922}, {"id_38": "T", "count": 67063}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
