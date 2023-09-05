@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .vega-actions a {
+        margin-right: 12px;
+        color: #757575;
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@3.4.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@4"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "vconcat": [{"hconcat": [{"data": {"name": "data-7b2cf6d13b1ff29ce592a50c8574ee9a"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_12"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_12"}, "field": "id_12"}}, "title": "counts of id_12", "width": 400}, {"data": {"name": "data-6ae9fd04d0b20a4b1150d885c7e614d7"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_15"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_15"}, "field": "id_15"}}, "title": "counts of id_15", "width": 400}, {"data": {"name": "data-d8753e5d54942ca3b9397fa20755fac2"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_16"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_16"}, "field": "id_16"}}, "title": "counts of id_16", "width": 400}, {"data": {"name": "data-8466aabebaf5926f1257fbdc5eb6b692"}, "mark": "bar", "encoding": {"tooltip": [{"type": "nominal", "field": "id_28"}, {"type": "quantitative", "field": "count"}], "x": {"type": "quantitative", "axis": {"title": "Count"}, "field": "count"}, "y": {"type": "nominal", "axis": {"title": "id_28"}, "field": "id_28"}}, "title": "counts of id_28", "width": 400}]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-7b2cf6d13b1ff29ce592a50c8574ee9a": [{"id_12": null, "count": 446307}, {"id_12": "NotFound", "count": 123025}, {"id_12": "Found", "count": 21208}], "data-6ae9fd04d0b20a4b1150d885c7e614d7": [{"id_15": null, "count": 449555}, {"id_15": "Found", "count": 67728}, {"id_15": "New", "count": 61612}, {"id_15": "Unknown", "count": 11645}], "data-d8753e5d54942ca3b9397fa20755fac2": [{"id_16": null, "count": 461200}, {"id_16": "Found", "count": 66324}, {"id_16": "NotFound", "count": 63016}], "data-8466aabebaf5926f1257fbdc5eb6b692": [{"id_28": null, "count": 449562}, {"id_28": "Found", "count": 76232}, {"id_28": "New", "count": 64746}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
